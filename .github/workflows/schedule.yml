@@ -7,7 +7,6 @@ on:
 jobs: 
   run-windows-command:
     runs-on: windows-latest
-    needs: ["run-shell-command"]
     steps:
       - name: Directory Bash
         run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%h.%m.%s)"
