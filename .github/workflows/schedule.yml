@@ -9,6 +9,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Directory Bash
-        run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%h.%m.%s)"
+        run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%H.%M.%S)"
         shell: bash
 
