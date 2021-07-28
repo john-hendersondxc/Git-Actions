@@ -8,6 +8,9 @@ jobs:
   run-windows-command:
     runs-on: windows-latest
     steps:
+      - name: Display Envelope
+        run: echo "This is the payload envelope value."
+        shell: bash
       - name: Directory Bash
         run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%H.%M.%S)"
         shell: bash
