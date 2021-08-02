@@ -3,16 +3,32 @@ name: Schedule Comands
 on:
   repository_dispatch:
     types: [build]
-    steps:
-      - name: Display Envelope
-        run: echo ${{ github.event.client_payload.env}}
-        shell: bash
 
 jobs: 
-  run-windows-command:
-    runs-on: windows-latest
+  run-github-actions:
+    runs-on: ubuntu-latest
     steps:
-      - name: Directory Bash
-        run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%H.%M.%S)"
-        shell: bash
-
+      - name: payload
+        run: echo "${{github.event.client_payload.env}}"
+          echo "${{github.event.client_payload.artifact}}"
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+          cd /home/runner/work
+          ls -a
+          mkdir bikash
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Simple JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Bikash
+      - name: Log greeting time
+        run: echo "${{ steps.greet.outputs.time }}"
