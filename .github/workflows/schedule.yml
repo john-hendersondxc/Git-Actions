@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: payload
-        run: echo "You are currently in environment: ${{github.event.client_payload.env}}"
+        run: echo "You are currently in environment ${{github.event.client_payload.env}}"
       - name: List Files
         run: |
           pwd
