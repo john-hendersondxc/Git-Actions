@@ -3,14 +3,14 @@ name: Schedule Comands
 on:
   repository_dispatch:
     types: [build]
-
-jobs: 
-  run-windows-command:
-    runs-on: windows-latest
     steps:
       - name: Display Envelope
         run: echo ${{ github.event.client_payload.env}}
         shell: bash
+
+jobs: 
+  run-windows-command:
+    runs-on: windows-latest
       - name: Directory Bash
         run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%H.%M.%S)"
         shell: bash
