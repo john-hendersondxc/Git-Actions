@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Display Envelope
-        run: echo "This is the payload envelope value."
+        run: echo ${{ github.event.client_payload.env}}
         shell: bash
       - name: Directory Bash
         run: echo "Current run time is- $(date +%Y-%m-%d) at $(date +%H.%M.%S)"
